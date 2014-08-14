@@ -64,7 +64,7 @@ int main( int argc, char ** argv )
 
 	argp_parse( &argp, argc, argv, 0, 0, &arguments );
 
-	printf( "Setting servo on GPIO pin %d to %d for %d milliseconds.\n", arguments.pin, arguments.value, arguments.holdTime );
+	printf( "Setting servo on GPIO %d to %d for %d milliseconds.\n", arguments.pin, arguments.value, arguments.holdTime );
 
 	if( gpioInitialise() < 0 )
 	{
