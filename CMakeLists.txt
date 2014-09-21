@@ -25,3 +25,24 @@ add_executable( ${EXECUTABLE_NAME}
 	src/main.c
 )
 target_link_libraries( ${EXECUTABLE_NAME} pigpio pthread rt )
+
+install(TARGETS ${EXECUTABLE_NAME} DESTINATION bin)
+
+
+################################################################
+# Packaging
+
+set( CPACK_PACKAGE_VERSION "0.1-snapshot" )
+
+set( CPACK_PACKAGE_DESCRIPTION_SUMMARY "Controls servos on the Raspberry PI's GPIO pins using pigpio." )
+set( CPACK_PACKAGE_CONTACT "Tobias Himmer <provisorisch@online.de>" )
+
+set( CPACK_SOURCE_IGNORE_FILES "/\\\\..*$;~$;/build.*/;${CPACK_SOURCE_IGNORE_FILES}" )
+
+set( CPACK_DEBIAN_PACKAGE_DEPENDS "libstdc++6 (>= 4.8.2)" )
+
+set( CPACK_DEBIAN_PACKAGE_SECTION util )
+
+include( CPack )
+
+################################################################
